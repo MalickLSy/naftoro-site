@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naftoro — le carnet de gestion des petits commerçants</title>
+<meta name="description" content="Naftoro note qui vous doit de l’argent, vos ventes, votre stock, vos abonnés et votre tontine. Gratuit, en FCFA, avec relances WhatsApp.">
+<meta property="og:title" content="Naftoro — votre commerce, clair d’un coup d’œil">
+<meta property="og:description" content="Boutique, crédit des clients, abonnements et tontine. Gratuit.">
+<meta property="og:image" content="https://naftoro.com/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1B2747">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1B2747; --navy-2:#223A6B; --navy-deep:#121B33;
+  --orange:#F28A2E; --paper:#F6F5F0; --ink:#17223D; --muted:#5A6479;
+  --green:#17813E; --red:#D42A2A; --line:#E2E1DA;
+  --display:"Bricolage Grotesque", system-ui, sans-serif;
+  --body:"Instrument Sans", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);font-size:1.0625rem;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1160px,100% - 2.5rem);margin-inline:auto}
+
+/* Barre du haut */
+.top{position:absolute;inset:0 0 auto;z-index:10}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:1.25rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:#fff;font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.brand img{width:44px;height:44px;border-radius:11px}
+.top nav{display:flex;gap:1.75rem;align-items:center}
+.top nav a{color:#C9D3EA;text-decoration:none;font-weight:500;font-size:.98rem}
+.top nav a:hover{color:#fff}
+@media (max-width:760px){.top nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 1rem/1 var(--body);text-decoration:none;padding:.95rem 1.4rem;border-radius:14px;border:2px solid transparent;cursor:pointer}
+.btn-orange{background:var(--orange);color:#1B1206}
+.btn-orange:hover{background:#F69A45}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.top .btn{padding:.7rem 1.1rem;font-size:.95rem}
+
+/* Hero */
+.hero{background:radial-gradient(120% 90% at 20% 0%,#24427A 0%,var(--navy) 45%,var(--navy-deep) 100%);color:#fff;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:2rem;min-height:min(760px,100svh);padding-top:6.5rem}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6vw,4.9rem);line-height:.98;letter-spacing:-.035em;max-width:11ch}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p.lead{margin-top:1.4rem;font-size:clamp(1.1rem,1.6vw,1.3rem);color:#C9D3EA;max-width:34ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero .free{margin-top:1.4rem;color:#9FB0D3;font-size:.95rem}
+.hero .free strong{color:#fff;font-weight:600}
+.hero-visual{align-self:end;position:relative;height:620px}
+.hero-visual img{position:absolute;bottom:-40px;width:300px;clip-path:inset(0 round 46px 46px 0 0);filter:drop-shadow(0 30px 40px rgba(0,0,0,.35))}
+.hero-visual .p1{left:4%;transform:rotate(-7deg);bottom:-70px;opacity:.96}
+.hero-visual .p2{right:2%;transform:rotate(5deg)}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:7rem;min-height:0}
+  .hero-visual{height:430px;width:min(520px,100%);margin-inline:auto}
+  .hero-visual img{width:min(210px,46%)}
+}
+
+/* Le carnet papier vs Naftoro */
+.why{padding:6.5rem 0 3rem}
+.why .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem;align-items:center}
+.why h2,.section-title{font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1.04;letter-spacing:-.03em}
+.why p{margin-top:1.1rem;color:var(--muted);max-width:44ch}
+.ledger{background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.6rem 1.6rem 1.2rem;position:relative}
+.ledger-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:.9rem;border-bottom:1px solid var(--line)}
+.ledger-head b{font-family:var(--display);font-size:1.3rem}
+.ledger-head span{color:var(--muted);font-size:.92rem}
+@media (max-width:520px){.ledger-head span{display:none}.ledger{padding:1.2rem}}
+.row{display:grid;grid-template-columns:2.6rem 1fr auto;gap:.9rem;align-items:center;padding:.85rem 0;border-bottom:1px solid #EFEEE8}
+.row:last-child{border-bottom:0}
+.av{width:2.6rem;height:2.6rem;border-radius:50%;background:#E7ECF5;color:var(--navy-2);display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.row .n{font-weight:600}
+.row .s{color:var(--muted);font-size:.9rem}
+.amt{text-align:right;font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+.amt small{display:block;font-weight:600;font-size:.82rem}
+.row.paid .amt{color:var(--green)}
+.row.paid .amt .was{color:var(--muted);text-decoration:line-through;font-weight:500}
+.paid-flag{opacity:0;transform:scale(.8)}
+.ledger.go .paid-flag{animation:pop .5s .9s forwards}
+.ledger.go .row.paid .was{animation:strike .6s .3s both}
+@keyframes pop{to{opacity:1;transform:none}}
+@keyframes strike{from{text-decoration-color:transparent}to{text-decoration-color:currentColor}}
+.ledger-foot{display:flex;justify-content:space-between;margin-top:.6rem;padding-top:.9rem;border-top:1px solid var(--line);font-weight:600}
+.ledger-foot .tot{color:var(--red);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.why .wrap{grid-template-columns:1fr;gap:2.5rem}.why{padding-top:4.5rem}}
+
+/* Visite de l'application */
+.tour{padding:4rem 0 6rem}
+.tour-intro{max-width:40ch;margin-bottom:2.5rem}
+.tour-intro p{margin-top:.9rem;color:var(--muted)}
+.tour-grid{display:grid;grid-template-columns:1fr minmax(320px,440px);gap:4rem}
+.steps{list-style:none}
+.step{min-height:78vh;display:flex;flex-direction:column;justify-content:center;padding-right:1rem;border-left:3px solid var(--line);padding-left:1.8rem;transition:border-color .3s}
+.step.on{border-left-color:var(--orange)}
+.step h3{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,2.6vw,2.2rem);line-height:1.08;letter-spacing:-.025em;max-width:18ch}
+.step p{margin-top:.9rem;color:var(--muted);max-width:40ch}
+.step ul{margin-top:1rem;padding-left:1.1rem;color:var(--ink)}
+.step li{margin-top:.35rem}
+.step .shot{display:none}
+.stage{position:sticky;top:6vh;height:88vh;background:radial-gradient(110% 70% at 50% 0%,#24427A,var(--navy) 55%,var(--navy-deep));border-radius:30px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding:2.2rem 2.2rem 0}
+.stage img{position:absolute;bottom:0;left:50%;width:min(86%,360px);clip-path:inset(0 round 52px 52px 0 0);transform:translate(-50%,24px);opacity:0;transition:opacity .45s ease,transform .45s ease}
+.stage img.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:900px){
+  .tour-grid{grid-template-columns:1fr}
+  .stage{display:none}
+  .step{min-height:0;padding:2.2rem 0 0;border-left:0;border-top:1px solid var(--line);margin-top:2rem}
+  .step .shot{display:block;margin-top:1.6rem;background:linear-gradient(var(--navy-2),var(--navy-deep));border-radius:24px;padding:1.6rem 1.6rem 0;overflow:hidden}
+  .step .shot img{width:min(100%,340px);margin-inline:auto;clip-path:inset(0 round 48px 48px 0 0)}
+}
+
+/* Tablette */
+.tablet{background:var(--navy);color:#fff;padding:6rem 0 0;overflow:hidden}
+.tablet .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:end}
+.tablet .txt{padding-bottom:6rem}
+.tablet p{margin-top:1rem;color:#C9D3EA;max-width:38ch}
+.tablet img{width:100%;margin-bottom:-2px;clip-path:inset(0 round 44px 44px 0 0)}
+@media (max-width:900px){.tablet .wrap{grid-template-columns:1fr}.tablet .txt{padding-bottom:0}}
+
+/* Ce que Naftoro ne fait pas */
+.honest{padding:6rem 0}
+.honest .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem}
+.honest .lede{color:var(--muted);margin-top:1rem;max-width:36ch}
+.facts{display:grid;gap:0}
+.fact{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.fact:last-child{border-bottom:1px solid var(--line)}
+.fact .mark{width:2.4rem;height:2.4rem;border-radius:50%;display:grid;place-items:center;background:#FCE7E7;color:var(--red);font-weight:700}
+.fact.yes .mark{background:#DDF3E4;color:var(--green)}
+.fact h3{font-size:1.15rem;font-weight:700}
+.fact p{color:var(--muted);margin-top:.25rem}
+@media (max-width:900px){.honest .wrap{grid-template-columns:1fr;gap:2rem}}
+
+/* Démo / appel final */
+.demo{padding:0 0 6rem}
+.demo-box{background:var(--orange);color:#1B1206;border-radius:30px;padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center}
+.demo-box h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:-.03em}
+.demo-box p{margin-top:1rem;max-width:42ch;color:#3A2410}
+.demo-list{list-style:none;display:grid;gap:.6rem}
+.demo-list li{background:rgba(255,255,255,.55);border-radius:14px;padding:.85rem 1rem;font-weight:600}
+.demo-list li span{display:block;font-weight:500;font-size:.92rem;color:#5A3A18}
+.demo-box .btn{background:var(--navy);color:#fff;margin-top:1.6rem}
+.demo-box .btn:hover{background:var(--navy-2)}
+@media (max-width:900px){.demo-box{grid-template-columns:1fr}}
+
+footer{background:var(--navy-deep);color:#9FB0D3;padding:3rem 0;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
+footer .brand{font-size:1.2rem}
+footer .brand img{width:34px;height:34px;border-radius:9px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="/img/logo.png" alt="" width="44" height="44">Naftoro</a>
+    <nav aria-label="Navigation principale">
+      <a href="#visite">L’application</a>
+      <a href="#gratuit">Gratuit</a>
+      <a class="btn btn-orange" href="#demo">Essayer la démo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Votre commerce, <em>clair</em> d’un coup d’œil</h1>
+      <p class="lead">Le carnet de la boutique, dans votre téléphone : qui vous doit, ce que vous vendez, votre stock, vos abonnés et votre tontine.</p>
+      <div class="ctas">
+        <a class="btn btn-orange" href="#demo">Essayer la démo</a>
+        <a class="btn btn-ghost" href="#visite">Voir l’application</a>
+      </div>
+      <p class="free"><strong>Entièrement gratuit.</strong> En FCFA. Sur téléphone et tablette.</p>
+    </div>
+    <div class="hero-visual">
+      <img class="p1" src="/img/clients.webp" width="600" height="1258" alt="Liste des clients qui doivent de l’argent dans Naftoro">
+      <img class="p2" src="/img/accueil.webp" width="600" height="1258" alt="Tableau de bord de la Boutique Awa dans Naftoro">
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div>
+      <h2>Le cahier de crédit, sans les pages perdues</h2>
+      <p>Chaque commerçant a son cahier : «&nbsp;Ousmane, riz 10 kg&nbsp;», «&nbsp;Fatou a remboursé 2 000&nbsp;». Naftoro garde ces notes, fait les totaux et vous montre qui relancer. Quand un client paie, la dette se met à jour toute seule.</p>
+    </div>
+    <div class="ledger" id="ledger" aria-label="Exemple de carnet de crédit">
+      <div class="ledger-head"><b>Vos clients vous doivent</b><span>Boutique Awa</span></div>
+      <div class="row"><div class="av">OB</div><div><div class="n">Ousmane Ba</div><div class="s">Riz, huile · 3 nov.</div></div><div class="amt">22 000 F<small>À relancer</small></div></div>
+      <div class="row"><div class="av">IF</div><div><div class="n">Ibrahima Fall</div><div class="s">Marchandises · 28 oct.</div></div><div class="amt">20 000 F<small>À relancer</small></div></div>
+      <div class="row paid"><div class="av">FN</div><div><div class="n">Fatou Ndiaye</div><div class="s">A payé par Wave · aujourd’hui</div></div><div class="amt"><span class="was">4 500 F</span><small class="paid-flag">Payé</small></div></div>
+      <div class="ledger-foot"><span>Total à recevoir</span><span class="tot">42 000 FCFA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tour" id="visite">
+  <div class="wrap">
+    <div class="tour-intro">
+      <h2 class="section-title">Tout ce que vous notiez à la main</h2>
+      <p>Les écrans ci-dessous viennent du compte de démonstration : une boutique, un carnet de crédit, des abonnés et une tontine.</p>
+    </div>
+    <div class="tour-grid">
+      <ol class="steps">
+        <li class="step" data-img="accueil">
+          <h3>Votre journée sur un seul écran</h3>
+          <p>Argent reçu, argent dépensé, ce que vos clients vous doivent. Les clients à relancer et les produits à racheter apparaissent en premier.</p>
+          <div class="shot"><img src="/img/accueil.webp" alt="Écran d’accueil de Naftoro" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="clients">
+          <h3>Qui vous doit, et combien</h3>
+          <p>La liste de vos clients avec ce que chacun doit. Filtrez ceux qui doivent ou ceux qui ont laissé une avance, et cherchez par nom ou numéro.</p>
+          <div class="shot"><img src="/img/clients.webp" alt="Liste des clients et de leurs dettes" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="vente">
+          <h3>Vendez en trois touches</h3>
+          <p>Touchez les produits, choisissez le moyen de paiement, validez. Espèces, Wave, Orange Money ou Free Money, ou bien à crédit sur le compte du client.</p>
+          <div class="shot"><img src="/img/vente.webp" alt="Écran de vente avec panier" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="relance">
+          <h3>Relancez sur WhatsApp</h3>
+          <p>Naftoro prépare le message avec le bon montant. WhatsApp s’ouvre, vous relisez et c’est vous qui l’envoyez.</p>
+          <ul><li>Historique «&nbsp;a pris&nbsp;» et «&nbsp;a payé&nbsp;» mois par mois</li><li>Factures avec articles</li></ul>
+          <div class="shot"><img src="/img/relance.webp" alt="Fiche d’un client avec le bouton WhatsApp" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="benefice">
+          <h3>Votre bénéfice, sans calcul</h3>
+          <p>Ventes moins prix d’achat : Naftoro fait le compte sur la journée, 7 jours, 30 jours ou 12 mois, pour une boutique ou toutes les vôtres.</p>
+          <div class="shot"><img src="/img/benefice.webp" alt="Statistiques et bénéfice sur 30 jours" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="stock">
+          <h3>Le stock se compte tout seul</h3>
+          <p>Chaque vente retire la marchandise du stock. Quand un produit est presque fini, il passe dans «&nbsp;À racheter&nbsp;». Chaque jour, l’application vous demande de vérifier trois produits : 30 secondes, sans fermer la boutique.</p>
+          <div class="shot"><img src="/img/stock.webp" alt="Liste des produits avec le stock" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="abonnements">
+          <h3>Abonnements : qui a payé ce mois</h3>
+          <p>Wifi, loyer, école, cours… Voyez qui a payé, ce qu’il reste à encaisser et les retards, puis relancez chaque abonné en un geste.</p>
+          <div class="shot"><img src="/img/abonnements.webp" alt="Suivi des abonnements du mois" loading="lazy" width="600" height="1258"></div>
+        </li>
+        <li class="step" data-img="tontine">
+          <h3>Votre tontine, sans cahier</h3>
+          <p>Qui a versé, qui n’a pas encore versé, qui reçoit ce tour et quand passent les suivants. Tout le groupe peut s’y retrouver.</p>
+          <div class="shot"><img src="/img/tontine.webp" alt="Tableau de bord d’une tontine" loading="lazy" width="600" height="1258"></div>
+        </li>
+      </ol>
+      <div class="stage" aria-hidden="true">
+        <img data-key="accueil" class="on" src="/img/accueil.webp" alt="" width="600" height="1258">
+        <img data-key="clients" src="/img/clients.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="vente" src="/img/vente.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="relance" src="/img/relance.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="benefice" src="/img/benefice.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="stock" src="/img/stock.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="abonnements" src="/img/abonnements.webp" alt="" width="600" height="1258" loading="lazy">
+        <img data-key="tontine" src="/img/tontine.webp" alt="" width="600" height="1258" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tablet">
+  <div class="wrap">
+    <div class="txt">
+      <h2 class="section-title">Au comptoir, sur tablette</h2>
+      <p>Sur un grand écran, les statistiques et le panier tiennent côte à côte. Vos vendeurs peuvent aussi noter les crédits depuis leur propre téléphone.</p>
+    </div>
+    <img src="/img/tablette.webp" width="1000" height="1366" loading="lazy" alt="Statistiques de Naftoro sur tablette : bénéfice, entrées et sorties d’argent, produits qui rapportent le plus.">
+  </div>
+</section>
+
+<section class="honest" id="gratuit">
+  <div class="wrap">
+    <div>
+      <h2 class="section-title">Un carnet, rien de plus</h2>
+      <p class="lede">Naftoro vous aide à noter et à compter. Il ne touche jamais à votre argent.</p>
+    </div>
+    <div class="facts">
+      <div class="fact yes"><div class="mark">✓</div><div><h3>Entièrement gratuit</h3><p>Pas d’abonnement, pas de frais cachés, rien à acheter dans l’application.</p></div></div>
+      <div class="fact"><div class="mark">✕</div><div><h3>Aucun prêt d’argent</h3><p>Naftoro note les crédits que vous faites à vos clients. Il ne prête rien à personne.</p></div></div>
+      <div class="fact"><div class="mark">✕</div><div><h3>Aucun paiement</h3><p>Wave, Orange Money ou espèces : vous notez comment le client a payé, l’argent ne passe pas par l’application.</p></div></div>
+      <div class="fact"><div class="mark">✕</div><div><h3>Aucun message envoyé à votre place</h3><p>Les rappels ouvrent WhatsApp avec un message prêt. Vous décidez de l’envoyer.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="demo-box">
+      <div>
+        <h2>Essayez avec le compte de démonstration</h2>
+        <p>Pas besoin de saisir vos données pour voir comment ça marche. Le compte de démonstration est déjà rempli.</p>
+        <a class="btn" id="demo-link" href="#">Ouvrir la démo</a>
+      </div>
+      <ul class="demo-list">
+        <li>Boutique Awa<span>16 produits, ventes et statistiques</span></li>
+        <li>Carnet de crédit<span>12 clients, dont 7 à relancer</span></li>
+        <li>Wifi Liberté 6<span>10 abonnés, paiements du mois</span></li>
+        <li>Tontine des Dames<span>10 membres, tour 5 sur 10</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><img src="/img/logo.png" alt="" width="34" height="34">Naftoro</a>
+    <p>Le carnet de gestion des petits commerçants. Gratuit.</p>
+    <p>© 2026 Naftoro</p>
+  </div>
+</footer>
+
+<script>
+// Lien vers l'application ou la démo : remplacez "#" par l'adresse réelle.
+const LIEN_DEMO = "#";
+document.getElementById("demo-link").href = LIEN_DEMO;
+
+// Changement d'écran dans le téléphone au fil du défilement
+const steps = document.querySelectorAll(".step");
+const shots = document.querySelectorAll(".stage img");
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    steps.forEach(s => s.classList.toggle("on", s === e.target));
+    shots.forEach(i => i.classList.toggle("on", i.dataset.key === e.target.dataset.img));
+  });
+}, { rootMargin: "-45% 0px -45% 0px" });
+steps.forEach(s => io.observe(s));
+
+// Le carnet : la dette de Fatou est rayée quand il apparaît
+const ledger = document.getElementById("ledger");
+new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { ledger.classList.add("go"); o.disconnect(); } }, { threshold: .6 }).observe(ledger);
+</script>
+</body>
+</html>
