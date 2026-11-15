@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Naftoro — le carnet de gestion des petits commerçants</title>
-<meta name="description" content="Naftoro note qui vous doit de l’argent, vos ventes, votre stock, vos abonnés et votre tontine. Gratuit, en FCFA, avec relances WhatsApp.">
-<meta property="og:title" content="Naftoro — votre commerce, clair d’un coup d’œil">
+<title>Naftoro — le carnet de gestion de votre activité</title>
+<meta name="description" content="Boutique, carnet de crédit, abonnements ou tontine : Naftoro note qui vous doit, qui a payé et ce que vous vendez. Gratuit, en FCFA, avec relances WhatsApp.">
+<meta property="og:title" content="Naftoro — votre activité, claire d’un coup d’œil">
 <meta property="og:description" content="Boutique, crédit des clients, abonnements et tontine. Gratuit.">
 <meta property="og:image" content="https://naftoro.com/og.jpg">
 <meta property="og:type" content="website">
@@ -57,6 +57,9 @@ a{color:inherit}
 .hero h1 em{font-style:normal;color:var(--orange)}
 .hero p.lead{margin-top:1.4rem;font-size:clamp(1.1rem,1.6vw,1.3rem);color:#C9D3EA;max-width:34ch}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hero .kinds{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;max-width:34rem}
+.hero .kinds li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:.7rem .9rem;color:#9FB0D3;font-size:.9rem;line-height:1.3}
+.hero .kinds b{display:block;color:#fff;font-weight:700;font-size:1rem}
 .hero .free{margin-top:1.4rem;color:#9FB0D3;font-size:.95rem}
 .hero .free strong{color:#fff;font-weight:600}
 .hero-visual{align-self:end;position:relative;height:620px}
@@ -178,8 +181,14 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>Votre commerce, <em>clair</em> d’un coup d’œil</h1>
-      <p class="lead">Le carnet de la boutique, dans votre téléphone : qui vous doit, ce que vous vendez, votre stock, vos abonnés et votre tontine.</p>
+      <h1>Votre activité, <em>claire</em> d’un coup d’œil</h1>
+      <p class="lead">Le carnet de votre activité, dans votre téléphone. Choisissez la vôtre :</p>
+      <ul class="kinds" aria-label="Les 4 activités">
+        <li><b>Boutique</b>ventes, stock, bénéfice</li>
+        <li><b>Carnet de crédit</b>artisan, couturier, vendeur…</li>
+        <li><b>Abonnements</b>wifi, loyer, école, cours…</li>
+        <li><b>Tontine</b>groupe d’épargne</li>
+      </ul>
       <div class="ctas">
         <a class="btn btn-orange" href="https://naftoro.expo.app">Commencer gratuitement</a>
         <a class="btn btn-ghost" href="#visite">Voir l’application</a>
@@ -320,7 +329,7 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
 <footer>
   <div class="wrap">
     <a class="brand" href="#"><img src="/img/logo.png" alt="" width="34" height="34">Naftoro</a>
-    <p>Le carnet de gestion des petits commerçants. Gratuit.</p>
+    <p>Le carnet de gestion de votre activité. Gratuit.</p>
     <nav class="foot-links"><a href="https://naftoro.expo.app/aide">Aide</a><a href="https://naftoro.expo.app/confidentialite">Confidentialité</a><a href="mailto:naftoro@kalissma.com">naftoro@kalissma.com</a></nav>
     <p>© 2026 Naftoro</p>
   </div>
