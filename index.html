@@ -157,6 +157,7 @@ a{color:inherit}
 footer{background:var(--navy-deep);color:#9FB0D3;padding:3rem 0;font-size:.95rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
 footer .brand{font-size:1.2rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:1.25rem}.foot-links a{color:#fff;text-decoration:underline;text-underline-offset:3px}
 footer .brand img{width:34px;height:34px;border-radius:9px}
 </style>
 </head>
@@ -168,7 +169,7 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
     <nav aria-label="Navigation principale">
       <a href="#visite">L’application</a>
       <a href="#gratuit">Gratuit</a>
-      <a class="btn btn-orange" href="#demo">Essayer la démo</a>
+      <a class="btn btn-orange" href="https://naftoro.expo.app">Ouvrir l’application</a>
     </nav>
   </div>
 </header>
@@ -180,7 +181,7 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
       <h1>Votre commerce, <em>clair</em> d’un coup d’œil</h1>
       <p class="lead">Le carnet de la boutique, dans votre téléphone : qui vous doit, ce que vous vendez, votre stock, vos abonnés et votre tontine.</p>
       <div class="ctas">
-        <a class="btn btn-orange" href="#demo">Essayer la démo</a>
+        <a class="btn btn-orange" href="https://naftoro.expo.app">Commencer gratuitement</a>
         <a class="btn btn-ghost" href="#visite">Voir l’application</a>
       </div>
       <p class="free"><strong>Gratuit.</strong> En FCFA. Sur téléphone et tablette.</p>
@@ -301,15 +302,15 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
   <div class="wrap">
     <div class="demo-box">
       <div>
-        <h2>Essayez avec le compte de démonstration</h2>
-        <p>Pas besoin de saisir vos données pour voir comment ça marche. Le compte de démonstration est déjà rempli.</p>
-        <a class="btn" id="demo-link" href="#">Ouvrir la démo</a>
+        <h2>Commencez gratuitement</h2>
+        <p>Créez votre compte avec votre e-mail : une minute suffit. Sur téléphone, tablette ou ordinateur.</p>
+        <a class="btn" id="demo-link" href="https://naftoro.expo.app">Ouvrir l’application</a>
       </div>
       <ul class="demo-list">
-        <li>Boutique Awa<span>16 produits, ventes et statistiques</span></li>
-        <li>Carnet de crédit<span>12 clients, dont 7 à relancer</span></li>
-        <li>Wifi Liberté 6<span>10 abonnés, paiements du mois</span></li>
-        <li>Tontine des Dames<span>10 membres, tour 5 sur 10</span></li>
+        <li>Boutique<span>Ventes, stock et bénéfice</span></li>
+        <li>Carnet de crédit<span>Qui vous doit, et combien</span></li>
+        <li>Abonnements<span>Qui a payé ce mois</span></li>
+        <li>Tontine<span>Versements et tours</span></li>
       </ul>
     </div>
   </div>
@@ -320,14 +321,12 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
   <div class="wrap">
     <a class="brand" href="#"><img src="/img/logo.png" alt="" width="34" height="34">Naftoro</a>
     <p>Le carnet de gestion des petits commerçants. Gratuit.</p>
+    <nav class="foot-links"><a href="https://naftoro.expo.app/aide">Aide</a><a href="https://naftoro.expo.app/confidentialite">Confidentialité</a><a href="mailto:naftoro@kalissma.com">naftoro@kalissma.com</a></nav>
     <p>© 2026 Naftoro</p>
   </div>
 </footer>
 
 <script>
-// Lien vers l'application ou la démo : remplacez "#" par l'adresse réelle.
-const LIEN_DEMO = "#";
-document.getElementById("demo-link").href = LIEN_DEMO;
 
 // Changement d'écran dans le téléphone au fil du défilement
 const steps = document.querySelectorAll(".step");
