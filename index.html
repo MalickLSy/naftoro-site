@@ -70,10 +70,12 @@ a{color:inherit}
 @media (min-width:901px) and (max-width:1180px){.hero-visual .p1{left:2%;width:190px;bottom:-60px}.hero-visual .p3{right:-6%;width:190px;bottom:-60px}.hero-visual .p2{width:220px}}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr;padding-top:7rem;min-height:0}
-  .hero-visual{height:430px;width:min(520px,100%);margin-inline:auto}
-  .hero-visual img{width:min(210px,46%)}
-  .hero-visual .p1,.hero-visual .p3{width:min(170px,34%);bottom:-60px}
-  .hero-visual .p2{width:min(200px,40%)}
+  /* Téléphone : les 3 écrans tiennent dans la largeur, fondu en bas au lieu d'une coupure nette. */
+  .hero-visual{height:auto;aspect-ratio:1/.66;width:min(520px,100%);margin:1.5rem auto 0;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+  .hero-visual img{filter:drop-shadow(0 16px 22px rgba(0,0,0,.35))}
+  .hero-visual .p1{left:3%;width:33%;bottom:-36%;transform:rotate(-7deg)}
+  .hero-visual .p3{right:3%;width:33%;bottom:-36%;transform:rotate(7deg)}
+  .hero-visual .p2{left:50%;width:44%;bottom:-40%;transform:translateX(-50%)}
 }
 
 /* Le carnet papier vs Naftoro */
@@ -304,7 +306,7 @@ footer .brand img{width:34px;height:34px;border-radius:9px}
       <p class="lede">Naftoro vous aide à noter et à compter.</p>
     </div>
     <div class="facts">
-      <div class="fact yes"><div class="mark">✓</div><div><h3>Gratuit aujourd’hui</h3></div></div>
+      <div class="fact yes"><div class="mark">✓</div><div><h3>Gratuit</h3></div></div>
       <div class="fact"><div class="mark">✕</div><div><h3>Aucun prêt d’argent</h3><p>Naftoro note les crédits que vous faites à vos clients. Il ne prête rien à personne.</p></div></div>
       <div class="fact"><div class="mark">✕</div><div><h3>Aucun paiement</h3><p>Wave, Orange Money ou espèces : vous notez comment le client a payé, l’argent ne passe pas par l’application.</p></div></div>
       <div class="fact"><div class="mark">✕</div><div><h3>Aucun message envoyé à votre place</h3><p>Les rappels ouvrent WhatsApp avec un message prêt. Vous décidez de l’envoyer.</p></div></div>
